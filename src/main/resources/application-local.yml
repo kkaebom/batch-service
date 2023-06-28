@@ -1,0 +1,21 @@
+spring:
+  config:
+    import: application-import.yml
+  datasource:
+    hikari:
+      jdbc-url: jdbc:mysql://localhost:3306/kkaebom?userSSL=true&characterEncoding=UTF-8
+      username: root
+      password: password
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      connection-test-query: select now()
+      minimum-idle: 4
+      maximum-pool-size: 4
+      keepalive-time: 1700000
+      max-lifetime: 1800000
+    url: jdbc:mysql://localhost:3306/kkaebom?userSSL=true&characterEncoding=UTF-8
+
+quartz:
+  job:
+    volunteer-crawling:
+      enable: true
+      schedule: "0/20 * * 1/1 * ? *"
